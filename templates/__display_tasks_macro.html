@@ -1,0 +1,50 @@
+{% macro display_tasks(completed_tasks,pending_tasks) -%}
+    {% if completed_tasks is none and pending_tasks is none %}
+        <p align="center"> Try creating a new task by clicking the <b>Create Task</b> button </p>
+    {% else %}
+        <table cellpadding="10" id="TasksTable">
+            <tr>
+                <th>Status</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Mark as</th>
+            </tr>
+            {% if completed_tasks is not none %}
+                {% for task in completed_tasks %}
+                    {% if task is not none %}
+                        <tr>
+                            <td>{{ "completed" }}</td>
+                            <td>{{ task["title"] }}</td>
+                            <td>{{ task["description"] }}</td>
+                            <td>
+                                <button type="button" class="btn btn-default" id="mark_as_pending_id{{ task['id'] }}">
+                                    Pending
+                                </button>
+                            </td>
+                            <td></td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            {% if pending_tasks is not none %}
+                {% for task in pending_tasks %}
+                    {% if task is not none %}
+                        <tr>
+                            <td>{{ "pending" }}</td>
+                            <td>{{ task["title"] }}</td>
+                            <td>{{ task["description"] }}</td>
+                            <td>
+                                <button type="button" class="btn btn-default" id="mark_as_complete_id{{ task['id'] }}">
+                                    Complete
+                                </button>
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </table>
+    {% endif %}
+    <br>
+    <hr>
+{%- endmacro %}

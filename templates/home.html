@@ -1,0 +1,26 @@
+{% extends "parent.html" %}
+{% from "__display_tasks_macro.html" import display_tasks with context %}
+{% block home_page %}
+    {{ display_tasks(completed_tasks,pending_tasks) }}
+    <table>
+        <tr>
+            <td>Title:</td>
+            <td><input type="text" id="newTaskTitle" name="newTaskTitle"></td>
+            <td><p id="newTaskTitleError"></p></td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td><textarea id="newTaskDescription" name="newTaskDescription"></textarea></td>
+            <td><p id="newTaskDescriptionError"></p></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button id="newTask" name="newTask">Create Task</button>
+            </td>
+            <td>
+                <p id="newTaskError"></p>
+            </td>
+        </tr>
+    </table>
+{% endblock %}

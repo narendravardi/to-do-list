@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>A Simple To-do List using Flask and Jquery</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css?v=1">
+    <!-- Jquery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Validation Plugin -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../static/createNewTask.js"></script>
+    <script type="text/javascript" src="../static/signupValidator.js"></script>
+    <script type="text/javascript" src="../static/loginValidator.js"></script>
+    <script type="text/javascript" src="../static/togglePendingCompleteTasks.js"></script>
+</head>
+
+<body bgcolor="#E6E6FA">
+<div class="container">
+    <h1 id="title"><u>A Simple To-Do List using Flask and JQuery</u></h1>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="https://in.linkedin.com/in/narendravardi">Contact</a></li>
+        <li><a href="https://github.com/narendravardi/to-do-list/tree/master">About</a></li>
+        {% if not logged_in %}
+            <li class="lif"><a href="/signup">Sign Up</a></li>
+            <li class="lif"><a href="/login">Login</a></li>
+        {% else %}
+            <li class="lif"><a href="/logout">Logout</a></li>
+        {% endif %}
+    </ul>
+    <div>
+        {% for message in get_flashed_messages() %}
+            <b><p align="center" class="bg-primary">{{ message }}</p></b><br>
+        {% endfor %}
+    </div>
+    <div>
+        <br>
+        {% block user_login %}{% endblock %}
+        {% block user_signup %}{% endblock %}
+        {% block home_page %}{% endblock %}
+    </div>
+    <div class="footer">This webapp has been developed by <a href="https://in.linkedin.com/in/narendravardi">Narendra
+        Vardi</a></div>
+</div>
+</body>
+
+</html>

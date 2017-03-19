@@ -1,0 +1,32 @@
+{% extends "parent.html" %}
+{% block user_signup %}
+    <form action="" method="post" name="signup_form" id="signup_form">
+        <table>
+            <tr>
+                <td align="right"><label><b>Email</b></label></td>
+                <td><input type="text" placeholder="Enter Email" name="email" id="email" required></td>
+            </tr>
+            <tr>
+                <td align="right"><label><b>Password</b></label></td>
+                <td><input type="password" placeholder="Enter Password" name="password" id="password" required></td>
+            </tr>
+            <tr>
+                <td align="right"><label><b>Repeat Password</b></label></td>
+                <td><input type="password" placeholder="Repeat Password" name="r_password" id="r_password" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="reset" class="cancelbtn" style="display: none;"></button>
+                </td>
+                <td>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}

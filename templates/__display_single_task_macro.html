@@ -1,0 +1,10 @@
+{% macro display_tasks(task,task_serial_id) -%}
+    {% if task is not none %}
+        <tr>
+            <td>{{ task_serial_id }}</td>
+            <td>{{ "pending" }}</td>
+            <td>{{ task["title"] }}</td>
+            <td>{{ task["description"] }}</td>
+        </tr>
+    {% endif %}
+{%- endmacro %}
